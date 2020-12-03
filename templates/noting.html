@@ -1,0 +1,24 @@
+<h1>This is the page for Noting app, its a template</h1>
+<ul>
+    <!-- <li>Go for a walk</li>
+    <li>Read a book</li> -->
+    {% for note_item in all_items %}
+        <li>{{ note_item.title }} <br> {{note_item.desc}}
+            <form style= "display: inline;" action="/deleteNote/{{ note_item.id }}/" method="POST">
+                {% csrf_token %}
+                    <input type="submit" value="Delete"/>      
+                </form>
+        </li>
+
+    {% endfor %}
+
+</ul>
+
+<form action="/addNote/" method="POST">
+
+{% csrf_token %}
+    <input type="text" name="title" placeholder="Title"/>
+    <input type="text" name="desc" placeholder="Description"/>
+    <input type="submit" value="add"/>
+    
+</form>
