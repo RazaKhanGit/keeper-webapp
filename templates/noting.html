@@ -3,7 +3,7 @@
     <!-- <li>Go for a walk</li>
     <li>Read a book</li> -->
     {% for note_item in all_items %}
-        <li>{{ note_item.title }} <br> {{note_item.desc}}
+        <li><h3>{{ note_item.title }}</h3>{{ note_item.quad}} <br> {{note_item.desc}}
             <form style= "display: inline;" action="/deleteNote/{{ note_item.id }}/" method="POST">
                 {% csrf_token %}
                     <input type="submit" value="Delete"/>      
@@ -19,6 +19,12 @@
 {% csrf_token %}
     <input type="text" name="title" placeholder="Title"/>
     <input type="text" name="desc" placeholder="Description"/>
+    <select id = "quad" name="quad">
+        <option value = "Q1">one</option>
+        <option value = "Q2">two</option>
+        <option value = "Q3">three</option>
+        <option value = "Q4">four</option>
+      </select>
     <input type="submit" value="add"/>
     
 </form>

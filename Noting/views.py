@@ -11,7 +11,7 @@ def temp(request):
     return HttpResponse("This is a temporary view for this Page")
 
 def addNote(request):
-    new_item = Note(title=request.POST['title'], desc=request.POST['desc'])# creating the Note
+    new_item = Note(title=request.POST['title'], desc=request.POST['desc'], quad=request.POST['quad'])# creating the Note
     new_item.save()# saving the note
     return HttpResponseRedirect('/noting/')
 
