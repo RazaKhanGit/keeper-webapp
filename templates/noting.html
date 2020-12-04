@@ -1,7 +1,5 @@
 <h1>This is the page for Noting app, its a template</h1>
 <ul>
-    <!-- <li>Go for a walk</li>
-    <li>Read a book</li> -->
     {% for note_item in all_items %}
         <li><h3>{{ note_item.title }}</h3>{{ note_item.quad}} <br> {{note_item.desc}}
             <form style= "display: inline;" action="/deleteNote/{{ note_item.id }}/" method="POST">
