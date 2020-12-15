@@ -8,7 +8,7 @@ def main(request):
     {'all_items': all_notes})# render the Database as a dictionary to be used in templates
 
 def temp(request):
-    return HttpResponse("This is a temporary view for this Page")
+    return render(request, 'home.html')
 
 def addNote(request):
     new_item = Note(title=request.POST['title'], desc=request.POST['desc'], quad=request.POST['quad'])# creating the Note
