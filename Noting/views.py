@@ -6,8 +6,7 @@ from django.contrib.auth.decorators import login_required #to check whether the 
 
 @login_required #login is required to access this view
 def main(request):
-    all_notes = Note.objects.all() #returns all objects in the mentioned database
-
+    all_notes = Note.objects.filter(author = request.user) #returns all objects in the mentioned database
     return render(request, 'noting.html', 
     {'all_items': all_notes}) #render the Database as a dictionary to be used in templates
 
@@ -15,7 +14,11 @@ def temp(request):
     return render(request, 'home.html')
 
 def addNote(request):
-    new_item = Note(title=request.POST['title'], desc=request.POST['desc'], quad=request.POST['quad']) #creating the Note using form
+    new_item = Note(
+        title=request.POST['title'], 
+        desc=request.POST['desc'], 
+        quad=request.POST['quad'],
+        author=request.user) #getting current logged-in user
     new_item.save() #saving the note in the database
     return HttpResponseRedirect('/noting/') #redirecting to /noting
 

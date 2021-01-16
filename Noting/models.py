@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django.contrib.auth.models import User
 # Create your models here.
 
 QUADRANT = (
@@ -14,6 +15,7 @@ class Note(models.Model):
     desc = models.TextField() #text field as descriptiong
     quad = models.CharField(max_length=100, choices=QUADRANT, default='Q4') #quadrant choices
     date = models.DateTimeField(default=timezone.now) #time of data creation
+    author = models.ForeignKey(User, on_delete = models.CASCADE, null = True, blank = True)
 
     def __str__(self): 
         return self.title #when asked for string return title
