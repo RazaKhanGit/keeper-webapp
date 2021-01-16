@@ -14,12 +14,18 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from django.conf.urls import url
 from Noting import views
 
+
+from django.contrib.auth.views import LoginView, LogoutView
+
 urlpatterns = [
+    path('admin/', admin.site.urls), #opens admin interface for superuser
     path('', views.temp),
-    path('noting/', views.main),
-    path('addNote/', views.addNote),
-    path('deleteNote/<int:Note_id>/', views.deleteNote)
+    path('accounts/', include('django.contrib.auth.urls')), #using auth to maintain user accounts
+    path('noting/', views.main), #use main view for /noting
+    path('addNote/', views.addNote), #use addNote view for /addNote
+    path('deleteNote/<int:Note_id>/', views.deleteNote) #use deleteNote for /deleteNote
 ]

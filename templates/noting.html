@@ -104,7 +104,7 @@
 <form id="form" action="/addNote/" method="POST">
 
 {% csrf_token %}
-    <input type="text" name="title" placeholder="Title"/><br/>
+    <input type="text" name="title" placeholder="Title" required/><br/>
     <input type="text" name="desc" placeholder="Description"/><br/>
     <p>Select Priority Quadrant: </p><select id = "quad" name="quad">
         <option value = "Q1">First</option>

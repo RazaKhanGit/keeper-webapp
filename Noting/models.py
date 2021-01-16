@@ -10,12 +10,12 @@ QUADRANT = (
 )
 
 class Note(models.Model):
-    title = models.CharField(max_length=100)
-    desc = models.TextField()
-    quad = models.CharField(max_length=100, choices=QUADRANT, default='Q4')
-    date = models.DateTimeField(default=timezone.now)
+    title = models.CharField(max_length=100) #char field of max length 100 as title
+    desc = models.TextField() #text field as descriptiong
+    quad = models.CharField(max_length=100, choices=QUADRANT, default='Q4') #quadrant choices
+    date = models.DateTimeField(default=timezone.now) #time of data creation
 
     def __str__(self): 
-        return self.title
+        return self.title #when asked for string return title
 
 
