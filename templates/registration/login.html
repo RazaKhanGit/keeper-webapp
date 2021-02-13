@@ -1,7 +1,39 @@
 <!-- Using django.contrib.auth for login -->
-<h2>Log In</h2>
+<!--Kelly Green #18A558 
+    Neon Green #A3EBB1 text
+    Blue Green #21B6A8
+    Green #116530 text bg-->
+<class id = "header">Log In</class>
 <form method="POST">
   {% csrf_token %}
   {{ form.as_p }}
   <button type="submit">Log In</button>
 </form>
+
+<style>
+  html {
+    font-size: 10px;
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: #21b6a8;
+  }
+  #header {
+    color: #a3ebb1;
+    font-size: 2.25rem;
+    padding: 0.25rem;
+  }
+
+  form {
+    color: #a3ebb1;
+    background-color: #116530;
+    margin-right: 50rem;
+    padding: 0.5rem;
+    font-size: 1.75rem;
+  }
+  button {
+    color: #116530;
+    background-color: #21b6a8;
+  }
+
+</style>
